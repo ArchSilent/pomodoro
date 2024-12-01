@@ -25,6 +25,7 @@ class SplashScreen extends StatelessWidget {
             const Text(
               'pomotoro',
               style: TextStyle(
+                fontFamily: 'Orbitron',
                 fontSize: 40, // Ajusta el tamaño de la fuente
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
