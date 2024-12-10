@@ -37,17 +37,19 @@ class PomodoroTimer extends ChangeNotifier {
   }
 
   void startFromRemaining() {
-    if (_isRunning) return;
-
-    _isRunning = true;
-    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      if (_remainingSeconds > 0) {
-        _remainingSeconds--;
-        notifyListeners();
-      } else {
-        stop();
-      }
-    });
+    if (_isRunning) {
+      stop(); // Si está corriendo, lo detenemos
+    } else {
+      _isRunning = true;
+      _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+        if (_remainingSeconds > 0) {
+          _remainingSeconds--;
+          notifyListeners();
+        } else {
+          stop();
+        }
+      });
+    }
 
     notifyListeners();
   }
